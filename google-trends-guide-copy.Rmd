@@ -66,25 +66,25 @@ Along the lines of what this guide will show you, *Google Trends* is most practi
 
 If you do not already have it open, go to <a href="https://trends.google.com/trends/?geo=US" target="blank">Google Trends</a>. 
 
-**<u>*Step 1:*</u>** Enter 'the juice laundry' as your search term. Then change 'Past 12 Months' to a custom time range from October 9, 2016 (10-9-2016) to the end of 2018 (12-31-2018). These dates coincide with the time period of the `thejuicelaundry` package's *Square* transaction data. 
+**<u>*Step 1:*</u>** Enter *the juice laundry* as your search term. Then change *'Past 12 Months'* to a custom time range from October 9, 2016 (10-9-2016) to the end of 2018 (12-31-2018). These dates coincide with the time period of the `thejuicelaundry` package's *Square* transaction data. 
 
 Notice that you can also change the location, category, and search type (web, image, etc.) parameters, but leave them alone. 
 
-**<u>*Step 2:*</u>** Enter 'The Juice Laundry' (capitalized this time) as a second search term. 
+**<u>*Step 2:*</u>** Enter *The Juice Laundry* (capitalized this time) as a second search term. 
 
-Both terms should say 'search term' under them. You will notice that only the red line shows. This is because the **search terms are case insensitive** and the  trendlines are identical. 
+Both terms should say *'search term'* under them. You will notice that only the red line shows. This is because the **search terms are case insensitive** and the  trendlines are identical. 
 
-**<u>*Step 3:*</u>** Replace the second search term with "the juice laundry" (in quotes this time).
+**<u>*Step 3:*</u>** Replace the second search term with *"the juice laundry"* (in quotes this time).
 
-You will notice that the trendlines are different and that is because sourrounding the term in quotes creates a totally different query based on *Google's* algorithm. Navigate <a href="https://support.google.com/trends/answer/4359582?hl=en" target="blank">here</a> to see the results of queries that are different but that share similar terms. The takeaway is that **the algorithm is stricter on quoted terms** (because it only counts searches with that exact phrase) and the trendlines should reflect this ("the juice laundry" being generally lower then its non-quoted counterpart).
+You will notice that the trendlines are different and that is because sourrounding the term in quotes creates a totally different query based on *Google's* algorithm. Navigate <a href="https://support.google.com/trends/answer/4359582?hl=en" target="blank">here</a> to see the results of queries that are different but that share similar terms. The takeaway is that **the algorithm is stricter on quoted terms** (because it only counts searches with that exact phrase) and the trendlines should reflect this (*"the juice laundry"* being generally lower then its non-quoted counterpart).
 
-**<u>*Step 4:*</u>** Add 'juice laundry' and the quoted "juice laundry", in that order, as two more search terms. 
+**<u>*Step 4:*</u>** Add *juice laundry* and the quoted *"juice laundry"*, in that order, as two more search terms. 
 
-The resulting trendlines will be unique, displaying generally greater search interest than search terms with "the" (an additional restriction) in them -- which makes sense. Take note of how the interest over time for existing trendlines (the blue and red in this case) shrink as you added the new search terms. Remember that this is because **search interest for one term is relative to the search interest for another**. 
+The resulting trendlines will be unique, displaying generally greater search interest than search terms with *"the"* (an additional restriction) in them -- which makes sense. Take note of how the interest over time for existing trendlines (the blue and red in this case) shrink as you added the new search terms. Remember that this is because **search interest for one term is relative to the search interest for another**. 
 
-**<u>*Step 5:*</u>** Finally, add *The Juice L aundry* as another search term, but this time choose the option that states "Juice Shop in Charlottesville, VA" underneath it.
+**<u>*Step 5:*</u>** Finally, add *The Juice L aundry* as another search term, but this time choose the option that states *'Juice Shop in Charlottesville, VA'* underneath it.
 
-You have added what is known as a *topic*. According to Google, **a topic is a group of terms that share a concept**. For example, if you search the topic "London," your search includes results for topics such as "Capital of the UK" and "Londres" which is "London" in Spanish. For all we know, Google's algorithm may be grouping search terms like those we have (more or less) to form the topic of *The Juice Laundry*, but we cannot know for sure what it is doing.
+You have added what is known as a *topic*. According to Google, **a topic is a group of terms that share a concept**. For example, if you search the topic *"London,"* your search includes results for topics such as *"Capital of the UK"* and *"Londres"* which is *"London"* in Spanish. For all we know, Google's algorithm may be grouping search terms like those we have (more or less) to form the topic of *The Juice Laundry*, but we cannot know for sure what it is doing.
 
 Your screen should look very similar to the photo below. Because samples are different every day, however, the trendlines will not look exactly the same.
 
@@ -92,7 +92,7 @@ Your screen should look very similar to the photo below. Because samples are dif
 
 **<u>*Step 6:*</u>** Scroll your mouse over the trendlines and witness how **relative search interest is aggregated for week intervals**. 
 
-Look for the peak popularity of the trends and note the specific week they occurred. Do a quick google search for news around that time -- did TJL open a new location or have a story written on them? Is there an obvious reason that relative search interest for them was highest then?
+Look for the peak popularity of the trends and note the specific week they occurred. Do a quick google search for news around that time -- did *TJL* open a new location or have a story written on them? Is there an obvious reason that relative search interest for them was highest then?
 
 **<u>*Step 7:*</u>**  Download the displayed data as a csv file and open it with Excel or Numbers (using the download button on the top right of the line graph). It should come from <a href="https://trends.google.com/trends/explore?date=2016-10-09%202018-12-31&geo=US&q=the%20juice%20laundry,%22the%20juice%20laundry%22,juice%20laundry,%22juice%20laundry%22,%2Fg%2F12m9gwg0k" target="blank">this exact UI</a>.
 
@@ -158,17 +158,18 @@ gtrends$week_of <- as.Date(gtrends$week_of) # Rather than datetime default
 gtrends$relative_interest <- as.double(gtrends$relative_interest) # Not Int
 gtrends[gtrends$search_term == URLdecode(topic_url), "search_term"] <- "TJL Topic"
 ```
-``` {r, eval = FALSE}
+
+``` {r To display gtrends, eval = FALSE}
 gtrends
 ```
 
 Read in the csv you downloaded from the UI. Swap my local path with your local path.
 
-```{r, eval = FALSE}
+```{r csv gets their local path, eval = FALSE}
 csv <- "YOUR/LOCAL/CSV/PATH"
 ```
 
-```{r, eval = TRUE, include = FALSE}
+```{r My hidden csv, eval = TRUE, include = FALSE}
 csv <- "https://raw.githubusercontent.com/MalcolmMashig/google-trends/master/multiTimeline-37.csv"
 ```
 
@@ -177,7 +178,7 @@ raw_google_trends <- read_csv(csv, skip = 2)
 
 ```
 
-``` {r, eval = FALSE}
+``` {r To display raw trends, eval = FALSE}
 raw_google_trends
 ```
 
@@ -206,7 +207,7 @@ google_trends[google_trends$search_term == '"juice laundry": (United States)', "
 google_trends[google_trends$search_term == 'The Juice Laundry: (United States)', "search_term"] <- "TJL Topic"
 ```
 
-``` {r, eval = FALSE}
+``` {r To display tidy trends, eval = FALSE}
 google_trends
 ```
 
@@ -291,7 +292,7 @@ font_import(pattern = 'product-sans.ttf', prompt=FALSE)
 
 Remember that titles should state conclusions that can be made based on the graph. Make sure that the title I supplied is true and make sure it is a subtitle (a title will be too large later on).
 
-```{r Basic Line Graph}
+```{r basic-line-graph}
 lg <- ggplot(
   gtrends, aes(x = week_of, y = relative_interest, color = search_term)
   ) + 
@@ -299,7 +300,7 @@ lg <- ggplot(
   labs(x = 'Month', 
        y = 'Relative Interest', 
        color = 'Search Term', 
-       subtitle = "juice laundry is consistently the most searched",
+       subtitle = "Most searched: juice laundry",
        caption = "https://goo.gl/FZPu18")
   
 lg
@@ -307,7 +308,7 @@ lg
 
 It still looks far different than the UI. The solution is the `ggtech` package. There is a problem, however, because the package only specifies four google colors while our line graph contains five different search terms with their unique lines. If you look back at the UI, the fifth color is a shade of purple. If you take a screenshot isolating the purple line and then upload it <a href="https://html-color-codes.info/colors-from-image/" target="blank">here</a>, the program will spit out the exact color code. I got *#8F39AA* and you should get something similar. Now we need to update one of the package's function (found <a href="https://github.com/ricardo-bion/ggtech/blob/master/R/scale_color_tech.R" target="blank">here</a>) to add the fifth color to the google theme. Then we can use `ggtech` to create the ideal line graph.
 
-```{r Google Line Graph}
+```{r google-line-graph}
 scale_color_tech <- function(theme="airbnb", tech_key = list(
   airbnb = c("#FF5A5F", "#FFB400", "#007A87",  "#FFAA91", "#7B0051"),
   facebook = c("#3b5998", "#6d84b4", "#afbdd4", "#d8dfea"),
@@ -325,7 +326,7 @@ scale_color_tech <- function(theme="airbnb", tech_key = list(
 line_graph <- lg +
   theme_tech(theme = 'google') + 
   scale_color_tech(theme = 'google') +
-  guides(color = guide_legend(nrow = 2)) +
+  guides(color = guide_legend(nrow = 3)) +
   theme(legend.position = 'bottom', 
         legend.direction = 'vertical',
         axis.text.x = element_text(angle = 45, hjust = 1)) + 
@@ -349,7 +350,7 @@ avg_trend
 
 Construct a draft for the bar graph. Remember that bar graphs with y variables specified must clarify that `stat = 'identity'`.
 
-```{r Basic Bar Graph}
+```{r basic-bar-graph}
 bg <- ggplot(avg_trend, aes(x = search_term, y = avg_interest)) + 
   geom_bar(stat = 'identity') +
   labs(x = 'Search Term', y = 'Average Interest')
@@ -359,14 +360,14 @@ bg
 
 To add the fifth color this time, we will save all of Google's color codes (above) in a list and use the fill argument to deploy them. 
 
-```{r Google Bar Graph}
+```{r google-bar-graph}
 google_colors <- c("#5380E4", "#E12A3C", "#FFBF03", "#00B723", "#8F39AA")
 
 bar_graph <- bg +
   geom_bar(stat = 'identity', fill = google_colors) + 
   theme_tech(theme = 'google') +
   scale_fill_tech(theme = 'google') +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  theme(axis.text.x = element_text(angle = 80, hjust = 1)) + 
   geom_text(aes(label = avg_interest, vjust = -1)) +
   ylim(0, 100)
 
@@ -377,9 +378,9 @@ bar_graph
 
 Now we can arrange both graphs side by side as they appear in the UI. It did require some guessing-and-checking in order to decide the scaling that was best.
 
-```{r UI Replication}
-grid.arrange(bar_graph, line_graph, ncol = 2, widths = c(2, 5))
-
+```{r ui-replication}
+ui_copy <- grid.arrange(bar_graph, line_graph, ncol = 2, widths = c(2, 5))
+# ggsave("ui_copy.png", ui_copy)
 ```
 
 Here is the example UI again for comparision:
@@ -421,10 +422,12 @@ X13 <- read_csv(paste0(raw, "03-03", tjl)) %>% select(hits)
 
 Based on the method found [here]("https://github.com/PMassicotte/gtrendsR/issues/269#issuecomment-392784579"), the following code will average the relative interests (hits) for each week and search term among all samples.
 
-```{r Average hits}
+```{r Creating average hits}
 gtrends.list <- list(X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, X11, X12, X13)
 gtrends_averaged <- Reduce('+', gtrends.list) / length(gtrends.list)
+```
 
+```{r To display average hits}
 gtrends_averaged %>% as_tibble()
 ```
 
@@ -440,25 +443,140 @@ sample_average <- bind_cols(frame, gtrends_averaged) %>%
 
 sample_average$week_of <- as.Date(sample_average$week_of) 
 # Rather than datetime default
-gtrends[sample_average$search_term == gsub("q=", "", 
+sample_average[sample_average$search_term == gsub("q=", "", 
                                     URLdecode(topic_url)), 
         "search_term"] <- "TJL Topic"
 ```
 
-```{r, eval = FALSE}
+```{r To display sample averages, eval = FALSE}
 sample_average
 ```
 
 **<u>*Comparision via Correlation*:</u>**
 
-While one of the search terms ("juice laundry" in my case) may look like the obvious
+While one of the search terms ("juice laundry" in my case) may clearly appear the most similar to the TJL topic, there are systematic and reproducible ways of checking.
 
-### `thejuicelaundry` dataset {.tabset}
+We must un-tidy it with spread to check the correlations of the different search_terms with the topic term.
 
-### *Corner Juice* search terms comparision {.tabset}
+```{r Correlations with topic term}
+y <- sample_average %>% spread(key = "search_term", value = "average_relative_interest")
+
+y
+
+# comparing each search term column with the topic column
+cor(y[, 2], y[, 6]) 
+
+cor(y[, 3], y[, 6])
+
+cor(y[, 4], y[, 6])
+
+cor(y[, 5], y[, 6])
+```
+
+The strongest correlation for me (by far) was *"juice laundry"*.
+
+It makes sense because all relevant searches will definitely include both those words. Various add-ons before or after (like *"the"* or *"cville"*) may or may not be included. That said, the seemingly best `gtrendsR` search terms are those with only the essential words sourrounded by quotes.
+
+***
 
 ### *Corner Juice* vs. *TJL* {.tabset}
 
+Google Trends allows a business to track their search interest over time and monitor the effects of changes they make or press they get. Beyond that, it allows a business to benchmark against competition in terms of consumer interest. 
+
+I have repeated the `gtrendsR` process but this time with just *"juice laundry"* and *"corner juice"* (the competition) as search terms. The same `ggplot` process (with minor changes tailored to this search) yields this:
+
+```{r Competition gtrends, eval = TRUE, include = FALSE}
+start_date <- "2016-10-09"
+end_date <- "2018-12-31"
+country <- "US"
+time_span <- str_c(start_date, end_date, sep = " ")
+search_terms <- c('"juice laundry"', '"corner juice"')
+
+gtrends_list <- gtrends(search_terms, country, time = time_span)
+
+# write_csv(gtrends_list[["interest_over_time"]], paste0(Sys.Date(), "-tjl-versus-cj-gtrendsr.csv"))
+
+gtrends <- gtrends_list[["interest_over_time"]] %>% 
+  as_tibble() %>% 
+  rename('relative_interest' = 'hits', 
+         'week_of' = 'date', 
+         'search_term' = 'keyword') %>% 
+  select(c('week_of', 'search_term', 'relative_interest'))
+
+gtrends$week_of <- as.Date(gtrends$week_of) # Rather than datetime default
+gtrends$relative_interest <- as.double(gtrends$relative_interest) # Not Int
+```
+
+```{r tjl-vs-cj-basic-line-graph, eval = TRUE, include = FALSE}
+lg <- ggplot(
+  gtrends, aes(x = week_of, y = relative_interest, color = search_term)
+  ) + 
+  geom_line() + 
+  labs(x = 'Month', 
+       y = 'Relative Interest', 
+       color = 'Search Term', 
+       subtitle = "TJL consistently garners higher search interest",
+       caption = "https://goo.gl/JALDQP")
+  
+lg
+```
+
+```{r tjl-vs-cj-google-line-graph, eval = TRUE, include = FALSE}
+line_graph <- lg +
+  theme_tech(theme = 'google') + 
+  scale_color_tech(theme = 'google') +
+  guides(color = guide_legend(nrow = 1)) +
+  theme(legend.position = 'bottom', 
+        legend.direction = 'vertical',
+        axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  scale_x_date(date_labels = "%m/%Y", date_breaks = "2 months")
+
+line_graph
+```
+
+```{r tjl-vs-cj-basic-bar-graph, eval = TRUE, include = FALSE}
+avg_trend <- gtrends %>% 
+  group_by(search_term) %>% 
+  summarise('avg_interest' = round(mean(relative_interest)))
+
+avg_trend
+
+bg <- ggplot(avg_trend, aes(x = search_term, y = avg_interest)) + 
+  geom_bar(stat = 'identity') +
+  labs(x = 'Search Term', y = 'Average Interest')
+
+bg
+```
+
+```{r tjl-vs-cj-google-bar-graph, eval = TRUE, include = FALSE}
+google_colors <- c("#5380E4", "#E12A3C")
+
+bar_graph <- bg +
+  geom_bar(stat = 'identity', fill = google_colors) + 
+  theme_tech(theme = 'google') +
+  scale_fill_tech(theme = 'google') +
+  theme(axis.text.x = element_text(angle = 55, hjust = 1)) + 
+  geom_text(aes(label = avg_interest, vjust = -1)) +
+  ylim(0, 100)
+
+bar_graph
+```
+
+```{r tjl-vs-cj-ui-replication, echo = FALSE}
+comp_ui_copy <- grid.arrange(bar_graph, line_graph, ncol = 2, widths = c(2, 5))
+# ggsave("tjl-vs-cj-ui_copy.png", ui_copy)
+```
+
+You can find this web UI at the following link:
+
+```{r Competition ui url, echo = FALSE}
+get_gtrends_url(start_date, end_date, country, search_terms)
+
+```
+
+***
+
+### `thejuicelaundry` dataset {.tabset}
 
 
 

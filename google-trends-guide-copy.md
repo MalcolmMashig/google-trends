@@ -2,6 +2,7 @@ The Google Trends R Guide
 ================
 A manual for *intelligent*, *reproducible*, and *programmatic* analysis of *Google Trends* search interest over time with the `gtrendsR` package
 
+### Table of Contents
 -   [Overview](#overview)
 -   [Understanding *Google Trends*](#understanding-google-trends)
 -   [Navigating the User Interface (UI)](#navigating-the-user-interface-ui)
@@ -9,9 +10,8 @@ A manual for *intelligent*, *reproducible*, and *programmatic* analysis of *Goog
 -   [`get_gtrends_url` function](#get_gtrends_url-function)
 -   [Replicating the UI](#replicating-the-ui)
 -   [*TJL* search terms analysis](#tjl-search-terms-analysis)
--   [`thejuicelaundry` dataset](#thejuicelaundry-dataset)
--   [*Corner Juice* search terms comparision](#corner-juice-search-terms-comparision)
 -   [*Corner Juice* vs. *TJL*](#corner-juice-vs.-tjl)
+-   [`thejuicelaundry` dataset](#thejuicelaundry-dataset)
 
 ------------------------------------------------------------------------
 
@@ -69,25 +69,25 @@ Along the lines of what this guide will show you, *Google Trends* is most practi
 
 If you do not already have it open, go to <a href="https://trends.google.com/trends/?geo=US" target="blank">Google Trends</a>.
 
-**<u>*Step 1:*</u>** Enter 'the juice laundry' as your search term. Then change 'Past 12 Months' to a custom time range from October 9, 2016 (10-9-2016) to the end of 2018 (12-31-2018). These dates coincide with the time period of the `thejuicelaundry` package's *Square* transaction data.
+**<u>*Step 1:*</u>** Enter *the juice laundry* as your search term. Then change *'Past 12 Months'* to a custom time range from October 9, 2016 (10-9-2016) to the end of 2018 (12-31-2018). These dates coincide with the time period of the `thejuicelaundry` package's *Square* transaction data.
 
 Notice that you can also change the location, category, and search type (web, image, etc.) parameters, but leave them alone.
 
-**<u>*Step 2:*</u>** Enter 'The Juice Laundry' (capitalized this time) as a second search term.
+**<u>*Step 2:*</u>** Enter *The Juice Laundry* (capitalized this time) as a second search term.
 
-Both terms should say 'search term' under them. You will notice that only the red line shows. This is because the **search terms are case insensitive** and the trendlines are identical.
+Both terms should say *'search term'* under them. You will notice that only the red line shows. This is because the **search terms are case insensitive** and the trendlines are identical.
 
-**<u>*Step 3:*</u>** Replace the second search term with "the juice laundry" (in quotes this time).
+**<u>*Step 3:*</u>** Replace the second search term with *"the juice laundry"* (in quotes this time).
 
-You will notice that the trendlines are different and that is because sourrounding the term in quotes creates a totally different query based on *Google's* algorithm. Navigate <a href="https://support.google.com/trends/answer/4359582?hl=en" target="blank">here</a> to see the results of queries that are different but that share similar terms. The takeaway is that **the algorithm is stricter on quoted terms** (because it only counts searches with that exact phrase) and the trendlines should reflect this ("the juice laundry" being generally lower then its non-quoted counterpart).
+You will notice that the trendlines are different and that is because sourrounding the term in quotes creates a totally different query based on *Google's* algorithm. Navigate <a href="https://support.google.com/trends/answer/4359582?hl=en" target="blank">here</a> to see the results of queries that are different but that share similar terms. The takeaway is that **the algorithm is stricter on quoted terms** (because it only counts searches with that exact phrase) and the trendlines should reflect this (*"the juice laundry"* being generally lower then its non-quoted counterpart).
 
-**<u>*Step 4:*</u>** Add 'juice laundry' and the quoted "juice laundry", in that order, as two more search terms.
+**<u>*Step 4:*</u>** Add *juice laundry* and the quoted *"juice laundry"*, in that order, as two more search terms.
 
-The resulting trendlines will be unique, displaying generally greater search interest than search terms with "the" (an additional restriction) in them -- which makes sense. Take note of how the interest over time for existing trendlines (the blue and red in this case) shrink as you added the new search terms. Remember that this is because **search interest for one term is relative to the search interest for another**.
+The resulting trendlines will be unique, displaying generally greater search interest than search terms with *"the"* (an additional restriction) in them -- which makes sense. Take note of how the interest over time for existing trendlines (the blue and red in this case) shrink as you added the new search terms. Remember that this is because **search interest for one term is relative to the search interest for another**.
 
-**<u>*Step 5:*</u>** Finally, add *The Juice L aundry* as another search term, but this time choose the option that states "Juice Shop in Charlottesville, VA" underneath it.
+**<u>*Step 5:*</u>** Finally, add *The Juice L aundry* as another search term, but this time choose the option that states *'Juice Shop in Charlottesville, VA'* underneath it.
 
-You have added what is known as a *topic*. According to Google, **a topic is a group of terms that share a concept**. For example, if you search the topic "London," your search includes results for topics such as "Capital of the UK" and "Londres" which is "London" in Spanish. For all we know, Google's algorithm may be grouping search terms like those we have (more or less) to form the topic of *The Juice Laundry*, but we cannot know for sure what it is doing.
+You have added what is known as a *topic*. According to Google, **a topic is a group of terms that share a concept**. For example, if you search the topic *"London,"* your search includes results for topics such as *"Capital of the UK"* and *"Londres"* which is *"London"* in Spanish. For all we know, Google's algorithm may be grouping search terms like those we have (more or less) to form the topic of *The Juice Laundry*, but we cannot know for sure what it is doing.
 
 Your screen should look very similar to the photo below. Because samples are different every day, however, the trendlines will not look exactly the same.
 
@@ -95,7 +95,7 @@ Your screen should look very similar to the photo below. Because samples are dif
 
 **<u>*Step 6:*</u>** Scroll your mouse over the trendlines and witness how **relative search interest is aggregated for week intervals**.
 
-Look for the peak popularity of the trends and note the specific week they occurred. Do a quick google search for news around that time -- did TJL open a new location or have a story written on them? Is there an obvious reason that relative search interest for them was highest then?
+Look for the peak popularity of the trends and note the specific week they occurred. Do a quick google search for news around that time -- did *TJL* open a new location or have a story written on them? Is there an obvious reason that relative search interest for them was highest then?
 
 **<u>*Step 7:*</u>** Download the displayed data as a csv file and open it with Excel or Numbers (using the download button on the top right of the line graph). It should come from <a href="https://trends.google.com/trends/explore?date=2016-10-09%202018-12-31&geo=US&q=the%20juice%20laundry,%22the%20juice%20laundry%22,juice%20laundry,%22juice%20laundry%22,%2Fg%2F12m9gwg0k" target="blank">this exact UI</a>.
 
@@ -299,13 +299,13 @@ lg <- ggplot(
   labs(x = 'Month', 
        y = 'Relative Interest', 
        color = 'Search Term', 
-       subtitle = "juice laundry is consistently the most searched",
+       subtitle = "Most searched: juice laundry",
        caption = "https://goo.gl/FZPu18")
   
 lg
 ```
 
-![](google-trends-guide-copy_files/figure-markdown_github/Basic%20Line%20Graph-1.png)
+![](google-trends-guide_files/figure-markdown_github/basic-line-graph-1.png)
 
 It still looks far different than the UI. The solution is the `ggtech` package. There is a problem, however, because the package only specifies four google colors while our line graph contains five different search terms with their unique lines. If you look back at the UI, the fifth color is a shade of purple. If you take a screenshot isolating the purple line and then upload it <a href="https://html-color-codes.info/colors-from-image/" target="blank">here</a>, the program will spit out the exact color code. I got *\#8F39AA* and you should get something similar. Now we need to update one of the package's function (found <a href="https://github.com/ricardo-bion/ggtech/blob/master/R/scale_color_tech.R" target="blank">here</a>) to add the fifth color to the google theme. Then we can use `ggtech` to create the ideal line graph.
 
@@ -327,7 +327,7 @@ scale_color_tech <- function(theme="airbnb", tech_key = list(
 line_graph <- lg +
   theme_tech(theme = 'google') + 
   scale_color_tech(theme = 'google') +
-  guides(color = guide_legend(nrow = 2)) +
+  guides(color = guide_legend(nrow = 3)) +
   theme(legend.position = 'bottom', 
         legend.direction = 'vertical',
         axis.text.x = element_text(angle = 45, hjust = 1)) + 
@@ -336,7 +336,7 @@ line_graph <- lg +
 line_graph
 ```
 
-![](google-trends-guide-copy_files/figure-markdown_github/Google%20Line%20Graph-1.png)
+![](google-trends-guide_files/figure-markdown_github/google-line-graph-1.png)
 
 **<u>*Bar Graph:*</u>**
 
@@ -353,11 +353,11 @@ avg_trend
     ## # A tibble: 5 x 2
     ##   search_term             avg_interest
     ##   <chr>                          <dbl>
-    ## 1 "\"juice laundry\""               25
+    ## 1 "\"juice laundry\""               24
     ## 2 "\"the juice laundry\""            5
-    ## 3 juice laundry                     45
-    ## 4 the juice laundry                 11
-    ## 5 TJL Topic                         25
+    ## 3 juice laundry                     44
+    ## 4 the juice laundry                 10
+    ## 5 TJL Topic                         24
 
 Construct a draft for the bar graph. Remember that bar graphs with y variables specified must clarify that `stat = 'identity'`.
 
@@ -369,7 +369,7 @@ bg <- ggplot(avg_trend, aes(x = search_term, y = avg_interest)) +
 bg
 ```
 
-![](google-trends-guide-copy_files/figure-markdown_github/Basic%20Bar%20Graph-1.png)
+![](google-trends-guide_files/figure-markdown_github/basic-bar-graph-1.png)
 
 To add the fifth color this time, we will save all of Google's color codes (above) in a list and use the fill argument to deploy them.
 
@@ -380,24 +380,28 @@ bar_graph <- bg +
   geom_bar(stat = 'identity', fill = google_colors) + 
   theme_tech(theme = 'google') +
   scale_fill_tech(theme = 'google') +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  theme(axis.text.x = element_text(angle = 80, hjust = 1)) + 
   geom_text(aes(label = avg_interest, vjust = -1)) +
   ylim(0, 100)
 
 bar_graph
 ```
 
-![](google-trends-guide-copy_files/figure-markdown_github/Google%20Bar%20Graph-1.png)
+![](google-trends-guide_files/figure-markdown_github/google-bar-graph-1.png)
 
 **<u>*Copying the UI*</u>**
 
 Now we can arrange both graphs side by side as they appear in the UI. It did require some guessing-and-checking in order to decide the scaling that was best.
 
 ``` r
-grid.arrange(bar_graph, line_graph, ncol = 2, widths = c(2, 5))
+ui_copy <- grid.arrange(bar_graph, line_graph, ncol = 2, widths = c(2, 5))
 ```
 
-![](google-trends-guide-copy_files/figure-markdown_github/UI%20Replication-1.png)
+![](google-trends-guide_files/figure-markdown_github/ui-replication-1.png)
+
+``` r
+# ggsave("ui_copy.png", ui_copy)
+```
 
 Here is the example UI again for comparision:
 
@@ -441,7 +445,9 @@ Based on the method found [here](%22https://github.com/PMassicotte/gtrendsR/issu
 ``` r
 gtrends.list <- list(X1, X2, X3, X4, X5, X6, X7, X8, X9, X10, X11, X12, X13)
 gtrends_averaged <- Reduce('+', gtrends.list) / length(gtrends.list)
+```
 
+``` r
 gtrends_averaged %>% as_tibble()
 ```
 
@@ -472,7 +478,7 @@ sample_average <- bind_cols(frame, gtrends_averaged) %>%
 
 sample_average$week_of <- as.Date(sample_average$week_of) 
 # Rather than datetime default
-gtrends[sample_average$search_term == gsub("q=", "", 
+sample_average[sample_average$search_term == gsub("q=", "", 
                                     URLdecode(topic_url)), 
         "search_term"] <- "TJL Topic"
 ```
@@ -483,10 +489,79 @@ sample_average
 
 **<u>*Comparision via Correlation*:</u>**
 
-While one of the search terms ("juice laundry" in my case) may look like the obvious
+While one of the search terms ("juice laundry" in my case) may clearly appear the most similar to the TJL topic, there are systematic and reproducible ways of checking.
 
-### `thejuicelaundry` dataset
+We must un-tidy it with spread to check the correlations of the different search\_terms with the topic term.
 
-### *Corner Juice* search terms comparision
+``` r
+y <- sample_average %>% spread(key = "search_term", value = "average_relative_interest")
+
+y
+```
+
+    ## # A tibble: 117 x 6
+    ##    week_of    `"Juice Laundry… `"The Juice Lau… `Juice Laundry`
+    ##    <date>                <dbl>            <dbl>           <dbl>
+    ##  1 2016-10-09             8.15            5.77             24.8
+    ##  2 2016-10-16            20.2             4.15             27.3
+    ##  3 2016-10-23            17.8             5.46             25.9
+    ##  4 2016-10-30            11.8             0.769            34.5
+    ##  5 2016-11-06             3.85            0                12.8
+    ##  6 2016-11-13            14.2             8.85             28.7
+    ##  7 2016-11-20            16.9             8.92             18.3
+    ##  8 2016-11-27            12.9             2.92             25.8
+    ##  9 2016-12-04            38.8             0                58.6
+    ## 10 2016-12-11            21.4             6.62             26.7
+    ## # … with 107 more rows, and 2 more variables: `The Juice Laundry` <dbl>,
+    ## #   `TJL Topic` <dbl>
+
+``` r
+# comparing each search term column with the topic column
+cor(y[, 2], y[, 6]) 
+```
+
+    ##                 TJL Topic
+    ## "Juice Laundry" 0.9918474
+
+``` r
+cor(y[, 3], y[, 6])
+```
+
+    ##                     TJL Topic
+    ## "The Juice Laundry" 0.4750415
+
+``` r
+cor(y[, 4], y[, 6])
+```
+
+    ##               TJL Topic
+    ## Juice Laundry 0.7526071
+
+``` r
+cor(y[, 5], y[, 6])
+```
+
+    ##                   TJL Topic
+    ## The Juice Laundry 0.3033808
+
+The strongest correlation for me (by far) was *"juice laundry"*.
+
+It makes sense because all relevant searches will definitely include both those words. Various add-ons before or after (like *"the"* or *"cville"*) may or may not be included. That said, the seemingly best `gtrendsR` search terms are those with only the essential words sourrounded by quotes.
+
+------------------------------------------------------------------------
 
 ### *Corner Juice* vs. *TJL*
+
+Google Trends allows a business to track their search interest over time and monitor the effects of changes they make or press they get. Beyond that, it allows a business to benchmark against competition in terms of consumer interest.
+
+I have repeated the `gtrendsR` process but this time with just *"juice laundry"* and *"corner juice"* (the competition) as search terms. The same `ggplot` process (with minor changes tailored to this search) yields this:
+
+![](google-trends-guide_files/figure-markdown_github/tjl-vs-cj-ui-replication-1.png)
+
+You can find this web UI at the following link:
+
+    ## [1] "https://trends.google.com/trends/explore?date=2016-10-09%202018-12-31&geo=US&q=%22juice%20laundry%22,%22corner%20juice%22"
+
+------------------------------------------------------------------------
+
+### `thejuicelaundry` dataset

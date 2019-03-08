@@ -2,7 +2,6 @@ The Google Trends R Guide
 ================
 A manual for *intelligent*, *reproducible*, and *programmatic* analysis of *Google Trends* search interest over time with the `gtrendsR` package
 
-### Table of Contents
 -   [Overview](#overview)
 -   [Understanding *Google Trends*](#understanding-google-trends)
 -   [Navigating the User Interface (UI)](#navigating-the-user-interface-ui)
@@ -305,7 +304,7 @@ lg <- ggplot(
 lg
 ```
 
-![](google-trends-guide_files/figure-markdown_github/basic-line-graph-1.png)
+![](google-trends-guide-copy_files/figure-markdown_github/basic-line-graph-1.png)
 
 It still looks far different than the UI. The solution is the `ggtech` package. There is a problem, however, because the package only specifies four google colors while our line graph contains five different search terms with their unique lines. If you look back at the UI, the fifth color is a shade of purple. If you take a screenshot isolating the purple line and then upload it <a href="https://html-color-codes.info/colors-from-image/" target="blank">here</a>, the program will spit out the exact color code. I got *\#8F39AA* and you should get something similar. Now we need to update one of the package's function (found <a href="https://github.com/ricardo-bion/ggtech/blob/master/R/scale_color_tech.R" target="blank">here</a>) to add the fifth color to the google theme. Then we can use `ggtech` to create the ideal line graph.
 
@@ -336,7 +335,7 @@ line_graph <- lg +
 line_graph
 ```
 
-![](google-trends-guide_files/figure-markdown_github/google-line-graph-1.png)
+![](google-trends-guide-copy_files/figure-markdown_github/google-line-graph-1.png)
 
 **<u>*Bar Graph:*</u>**
 
@@ -353,11 +352,11 @@ avg_trend
     ## # A tibble: 5 x 2
     ##   search_term             avg_interest
     ##   <chr>                          <dbl>
-    ## 1 "\"juice laundry\""               24
-    ## 2 "\"the juice laundry\""            5
-    ## 3 juice laundry                     44
-    ## 4 the juice laundry                 10
-    ## 5 TJL Topic                         24
+    ## 1 "\"juice laundry\""               25
+    ## 2 "\"the juice laundry\""            8
+    ## 3 juice laundry                     43
+    ## 4 the juice laundry                 13
+    ## 5 TJL Topic                         25
 
 Construct a draft for the bar graph. Remember that bar graphs with y variables specified must clarify that `stat = 'identity'`.
 
@@ -369,7 +368,7 @@ bg <- ggplot(avg_trend, aes(x = search_term, y = avg_interest)) +
 bg
 ```
 
-![](google-trends-guide_files/figure-markdown_github/basic-bar-graph-1.png)
+![](google-trends-guide-copy_files/figure-markdown_github/basic-bar-graph-1.png)
 
 To add the fifth color this time, we will save all of Google's color codes (above) in a list and use the fill argument to deploy them.
 
@@ -387,7 +386,7 @@ bar_graph <- bg +
 bar_graph
 ```
 
-![](google-trends-guide_files/figure-markdown_github/google-bar-graph-1.png)
+![](google-trends-guide-copy_files/figure-markdown_github/google-bar-graph-1.png)
 
 **<u>*Copying the UI*</u>**
 
@@ -397,7 +396,7 @@ Now we can arrange both graphs side by side as they appear in the UI. It did req
 ui_copy <- grid.arrange(bar_graph, line_graph, ncol = 2, widths = c(2, 5))
 ```
 
-![](google-trends-guide_files/figure-markdown_github/ui-replication-1.png)
+![](google-trends-guide-copy_files/figure-markdown_github/ui-replication-1.png)
 
 ``` r
 # ggsave("ui_copy.png", ui_copy)
@@ -556,7 +555,7 @@ Google Trends allows a business to track their search interest over time and mon
 
 I have repeated the `gtrendsR` process but this time with just *"juice laundry"* and *"corner juice"* (the competition) as search terms. The same `ggplot` process (with minor changes tailored to this search) yields this:
 
-![](google-trends-guide_files/figure-markdown_github/tjl-vs-cj-ui-replication-1.png)
+![](google-trends-guide-copy_files/figure-markdown_github/tjl-vs-cj-ui-replication-1.png)
 
 You can find this web UI at the following link:
 

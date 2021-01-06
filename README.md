@@ -563,7 +563,3 @@ I have repeated the `gtrendsR` process but this time with just *"juice laundry"*
 You can find this web UI at the following link:
 
     ## [1] "https://trends.google.com/trends/explore?date=2016-10-09%202018-12-31&geo=US&q=%22corner%20juice%22,%22juice%20laundry%22"
-
-------------------------------------------------------------------------
-
-### `thejuicelaundry` dataset
